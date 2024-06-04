@@ -1,0 +1,69 @@
+﻿.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post-container {
+    position: relative; /* Konumlandırma için üst öğeye göre hareket */
+    display: flex;
+    justify-content: space-between; /* Sağa ve sola yaslanmış içerik */
+    align-items: center; /* Dikey hizalama */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-content {
+    flex-grow: 1; /* İçerik bölümünün esnek olmasını sağlar */
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.post-author {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+}
+
+.read-more {
+    color: #ff3333;
+    cursor: pointer;
+}
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+.delete-post-btn {
+    position: absolute; /* Diğer içeriğe göre mutlak konumlandırma */
+    top: 5px; /* Üstten boşluk */
+    right: 5px; /* Sağdan boşluk */
+    background-color: #ff3333;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Yuvarlatılmış köşeler */
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 30px; /* Tek satıra dikey hizalama */
+    text-align: center; /* Yatay hizalama */
+    cursor: pointer;
+}

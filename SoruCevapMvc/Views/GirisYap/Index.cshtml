@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GirisYap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/css/giris.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Soru-Yorum Giriş Ekranı</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="KullaniciAdi">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="KullaniciAdi" placeholder="Kullanıcı adı giriniz:" required="required" name="KullaniciAdi">
+            </div>
+            <div class="form-group">
+                <label for="Sifre">Password</label>
+                <input type="password" class="form-control" id="Sifre" placeholder="Sifre Giriniz:" required="required" name="Sifre">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Onayla</button> <!-- btn-block sınıfı butonun genişliğini ayarlar -->
+        </form>
+        <div class="text-center mt-3">
+            <a href="/UyeOl/Index">Üye Ol</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/giris.js"></script>
+</body>
+</html>
+
+

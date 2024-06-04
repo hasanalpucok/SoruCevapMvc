@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Soru Detayı";
+    Layout = "_Layout";
+    var postId = ViewData["PostId"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/sorudetayi.css">
+    
+
+</head>
+<body>
+    <div class="container">
+        <div id="postDetail" class="mt-4">
+            <!-- Soru detayları AJAX ile buraya yüklenecek -->
+              <input type="hidden" id="postIdHolder" value="@postId" />
+        </div>
+    </div>
+
+   
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/soru.js"></script>
+      
+    
+</body>
+</html>

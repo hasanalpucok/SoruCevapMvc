@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Soru Olustur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soru Oluştur</title>
+    <link rel="stylesheet" href="~/css/olustur.css">
+
+  
+</head>
+<body>
+    <div class="container">
+      
+        <form id="soruForm">
+            <div class="form-group">
+                <label for="title">Başlık</label>
+                <input type="text" id="qTitle" class="form-control" placeholder="Sorunun Başlığı">
+            </div>
+            <div class="form-group">
+                <label for="description">Açıklama</label>
+                <textarea id="description" class="form-control" rows="4" placeholder="Sorunun Açıklaması"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="category">Kategori</label>
+                <select id="category" class="form-control">
+                    <option value="genel">Genel</option>
+                    <option value="teknoloji">Teknoloji</option>
+                    <option value="spor">Spor</option>
+                    <option value="sanat">Sanat</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Soru Oluştur</button>
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/soruolustur.js"></script>
+</body>
+</html>
+
+

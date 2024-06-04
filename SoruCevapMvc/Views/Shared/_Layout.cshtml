@@ -1,0 +1,239 @@
+﻿@{
+    string sayfaİsmi = ViewData["Title"] != null ? ViewData["Title"].ToString() : "";
+}
+<!DOCTYPE html>
+<html lang="en"
+      data-footer="true"
+      data-override='{"attributes": {"placement": "vertical","layout": "fluid" }, "showSettings":false, "storagePrefix": "starter-project"}'>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>SoruYorum</title>
+    <meta name="description" content="An empty page with a fluid vertical layout." />
+    <!-- Favicon Tags Start -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="~/AdminTemplate/src/img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="~/AdminTemplate/src/img/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="~/AdminTemplate/src/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="~/AdminTemplate/src/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/AdminTemplate/src/img/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="~/AdminTemplate/src/img/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="img/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="img/favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="~/AdminTemplate/src/img/favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="~/AdminTemplate/src/img/favicon/mstile-310x310.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Favicon Tags End -->
+    <!-- Font Tags Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/AdminTemplate/src/font/CS-Interface/style.css" />
+    <!-- Font Tags End -->
+    <!-- Vendor Styles Start -->
+    <link rel="stylesheet" href="~/AdminTemplate/src/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/AdminTemplate/src/css/vendor/OverlayScrollbars.min.css" />
+
+    <!-- Vendor Styles End -->
+    <!-- Template Base Styles Start -->
+    <link rel="stylesheet" href="~/AdminTemplate/src/css/styles.css" />
+    <!-- Template Base Styles End -->
+
+    <link rel="stylesheet" href="~/AdminTemplate/src/css/main.css" />
+    <script src="~/AdminTemplate/src/js/base/loader.js"></script>
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            var token = localStorage.getItem('token');
+            console.log(token);
+          
+
+            // Eğer token yoksa veya değeri boşsa, kullanıcı henüz giriş yapmamıştır
+            if (!token || token === '') {
+                // Token yoksa veya değeri boşsa, kullanıcı henüz giriş yapmamıştır
+                // Giriş yap sayfasına yönlendirme yapılabilir
+                window.location.href = '/GirisYap';
+            }
+
+            // localStorage'tan 'rol' anahtarının değerini al
+            var role = localStorage.getItem('role');
+            console.log(role);
+
+            // 'rol' değerine göre ilgili menü öğelerini kontrol et ve göster/gizle
+            if (role !== 'admin') {
+
+                $('#uyelerMenuItem').remove()
+                $('#sorularMenuItem').remove()
+             
+               
+            } 
+            
+        });
+    </script>
+    <div id="root">
+        <div id="nav" class="nav-container d-flex">
+            <div class="nav-content d-flex">
+                <!-- Logo Start -->
+                <div class="name" style="text-transform: uppercase; font-weight: bold;">Soru Cevap</div>
+
+                <!-- Logo End -->
+                <!-- User Menu Start -->
+                <div class="user-container d-flex">
+                    <a href="Home/Index" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="name">@("")</div>
+
+
+                </div>
+                <!-- User Menu End -->
+                <!-- Menu Start -->
+                <div class="menu-container flex-grow-1" style="margin-top: -60px;">
+                    <ul id="menu" class="menu">
+                        <li>
+                            <a href="~/">
+                                <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
+                                <span class="label">Ana Sayfa</span>
+                            </a>
+                        </li>
+
+                        <li id="sorularimItem">
+                            <a href="~/Sorularim">
+                                <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
+                                <span class="label">Sorularim</span>
+                            </a>
+                        </li>
+
+                        <li id="soruOlusturMenuItem">
+                            <a href="~/SoruOlustur">
+                                <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
+                                <span class="label">Soru Oluştur</span>
+                            </a>
+                        </li>
+
+
+                        <li id="sorularMenuItem">
+                            <a href="~/SorulariGoruntule">
+                                <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
+                                <span class="label">Soruları Görüntüle</span>
+                            </a>
+                        </li>
+
+                        <li id="uyelerMenuItem">
+                            <a href="~/UyeGoruntule">
+                                <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
+                                <span class="label">Üyeleri Görüntüle</span>
+                            </a>
+                        </li>
+                        
+                        
+
+                            
+
+                        
+
+                        <li id="cikisYapItem">
+                            <a href="/GirisYap">
+                                <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
+                                <span class="label">Cıkış Yap</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- Menu End -->
+                <!-- Mobile Buttons Start -->
+                <div class="mobile-buttons-container">
+                    <!-- Scrollspy Mobile Button Start -->
+                    <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
+                        <i data-acorn-icon="menu-dropdown"></i>
+                    </a>
+                    <!-- Scrollspy Mobile Button End -->
+                    <!-- Scrollspy Mobile Dropdown Start -->
+                    <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
+                    <!-- Scrollspy Mobile Dropdown End -->
+                    <!-- Menu Button Start -->
+                    <a href="#" id="mobileMenuButton" class="menu-button">
+                        <i data-acorn-icon="menu"></i>
+                    </a>
+                    <!-- Menu Button End -->
+                </div>
+                <!-- Mobile Buttons End -->
+            </div>
+            <div class="nav-shadow"></div>
+        </div>
+
+        <main>
+            <div class="container">
+                <!-- Title and Top Buttons Start -->
+                <div class="page-title-container">
+                    <div class="row">
+                        <!-- Title Start -->
+                        <div class="col-12 col-md-7">
+                            <h1 class="mb-0 pb-0 display-4" id="title">@sayfaİsmi</h1>
+                            <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+
+                            </nav>
+                        </div>
+                        <!-- Title End -->
+                    </div>
+                </div>
+                <!-- Title and Top Buttons End -->
+                <!-- Content Start -->
+                <div class="card mb-2">
+                    <div class="card-body h-100">@RenderBody()</div>
+                </div>
+                <!-- Content End -->
+            </div>
+        </main>
+        <!-- Layout Footer Start -->
+        <footer>
+            <div class="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <p class="mb-0 text-muted text-medium">Colored Strategies 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Layout Footer End -->
+    </div>
+
+    <!-- Vendor Scripts Start -->
+    <script src="~/AdminTemplate/src/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="~/AdminTemplate/src/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminTemplate/src/js/vendor/OverlayScrollbars.min.js"></script>
+    <script src="~/AdminTemplate/src/js/vendor/autoComplete.min.js"></script>
+    <script src="~/AdminTemplate/src/js/vendor/clamp.min.js"></script>
+    <script src="~/AdminTemplate/src/icon/acorn-icons.js"></script>
+    <script src="~/AdminTemplate/src/icon/acorn-icons-interface.js"></script>
+
+    <!-- Vendor Scripts End -->
+    <!-- Template Base Scripts Start -->
+    <script src="~/AdminTemplate/src/js/base/helpers.js"></script>
+    <script src="~/AdminTemplate/src/js/base/globals.js"></script>
+    <script src="~/AdminTemplate/src/js/base/nav.js"></script>
+    <script src="~/AdminTemplate/src/js/base/search.js"></script>
+    <script src="~/AdminTemplate/src/js/base/settings.js"></script>
+    <!-- Template Base Scripts End -->
+    <!-- Page Specific Scripts Start -->
+
+    <script src="~/AdminTemplate/src/js/pages/vertical.js"></script>
+
+    <script src="~/AdminTemplate/src/js/common.js"></script>
+    <script src="~/AdminTemplate/src/js/scripts.js"></script>
+    @RenderSection("Scripts", required: false)
+    <!-- Page Specific Scripts End -->
+</body>
+</html>

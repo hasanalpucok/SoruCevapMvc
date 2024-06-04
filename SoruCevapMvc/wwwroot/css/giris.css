@@ -1,0 +1,27 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa; /* Arka plan rengi */
+}
+
+.container {
+    width: 400px; /* Container genişliği */
+    padding: 20px;
+    background-color: #fff; /* Container arka plan rengi */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+h1 {
+    text-align: center;
+    color: #007bff; /* Başlık rengi */
+    margin-bottom: 20px; /* Başlık altındaki boşluk */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Her form öğesi arasındaki boşluk */
+}
